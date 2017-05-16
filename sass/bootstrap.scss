@@ -1,0 +1,298 @@
+/*!
+  * Theme: Edward Folio
+  * Description: Portfolio Template by themesforever.com
+  * Version: 1.0
+  * This theme is based on:
+  * Bootstrap v3.3.5 (http://getbootstrap.com)
+  * Copyright 2011-2015 Twitter, Inc.
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+// Edward Styles
+
+/*!
+ **********************************************************
+ *
+ *		Navigation
+ *
+ **********************************************************
+ */
+.navbar-nav {
+	//	Bug for .btn-nav-close
+  > li:last-child > a {
+    margin-right: $navbar-height;
+  }
+}
+.nav-btn-close {
+  background-color: $brand-primary;
+  border: 0;
+  border-color: $navbar-default-toggle-border-color;
+  cursor: pointer;
+  height: $navbar-height;
+  line-height: $navbar-height;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: $navbar-height;
+  z-index: $zindex-navbar-fixed + 1;
+  &:hover,
+  &:focus {
+    background-color: darken($brand-primary,10%);
+    outline: 0;
+  }
+}
+//	-> End navigation
+
+/*!
+ **********************************************************
+ *
+ *		Wrapper page
+ *
+ **********************************************************
+ */
+ .wrapper-vertical-padding-sm {
+   padding-top: ceil( $grid-gutter-width * 1.5 );
+   padding-bottom: ceil( $grid-gutter-width * 1.5 );
+}
+.wrapper-vertical-padding {
+  padding-top: ceil( $grid-gutter-width * 2.5 );
+  padding-bottom: ceil( $grid-gutter-width * 2.5 );
+}
+.wrapper-vertical-padding-sm,
+.wrapper-vertical-padding {
+  height: auto;
+  &.bg-primary {
+    background-color: $brand-primary;
+  }
+  &.bg-white {
+    background-color: #fff;
+    color: $gray-dark;
+  }
+  h1,h2,h3 { margin: 0; margin-bottom: ceil( $grid-gutter-width * 0.5 ) }
+  &.no-padding-bottom { padding-bottom: 0 }
+}
+
+.header-folio {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li { padding: 2px 0; }
+  }
+  .thumbnail {
+    background: #fff;
+    margin: 0;
+    padding: 10px;
+  }
+}
+.text-error-main { font-size: 70px}
+
+/*!
+ **********************************************************
+ *
+ *		Portfolio
+ *
+ **********************************************************
+ */
+//	Delete margins default bootstrap
+//  only div portfolio
+.view-folio .row{
+  margin-left: 0;
+  margin-right: 0;
+  [class^="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+//	Layout grid portfolio
+#portfolio.grid {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+
+  figure {
+    background-color: darken( $brand-primary, 15% );
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    overflow: hidden;
+    margin: -0.20em;
+    width: 33.433%;
+    text-align: center;
+    img {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: block;
+    }
+    figcaption {
+      height: 100%;
+      right: 0;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      &::before,
+      &::after { pointer-events: none; }
+    }
+    h2 {
+      font-weight: 400;
+      text-transform: none;
+    }
+    h4 { font-weight: 400; }
+  }
+}
+@media screen and (max-width: 69.5em) {
+  #portfolio.grid figure { width: 50% }
+}
+@media screen and (max-width: 41.5em) {
+  #portfolio.grid figure { width: 100% }
+}
+//	Animation css grid portfolio
+#portfolio.grid {
+
+	figure.effect-folio {
+
+  	img {
+			opacity: 0.9;
+			-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+			transition: opacity 0.35s, transform 0.35s;
+			-webkit-transform: scale(1.20);
+			transform: scale(1.20);
+		}
+		h2 {
+			margin-top: 27%;
+			opacity: 0;
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: transform 0.35s;
+			-webkit-transform: translate3d(0,10px,0);
+			transform: translate3d(0,10px,0);
+		}
+		h4 {
+			margin-top: 3%;
+			opacity: 0;
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: transform 0.35s;
+			-webkit-transform: translate3d(0,10px,0);
+			transform: translate3d(0,10px,0);
+		}
+		a {
+			opacity: 0;
+			-webkit-transition: -webkit-transform 0.35s;
+			transition: transform 0.35s;
+			-webkit-transform: translate3d(0,0,0);
+			transform: translate3d(0,0,0);
+		}
+		&:hover {
+			img {
+				opacity: 0.2;
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+			h2 {
+				opacity: 1;
+				-webkit-transform: translate3d(0,-20px,0);
+				transform: translate3d(0,-20px,0);
+			}
+			h4 {
+				opacity: 1;
+				-webkit-transform: translate3d(0,-20px,0);
+				transform: translate3d(0,-20px,0);
+			}
+			a {
+				opacity: 1;
+				-webkit-transform: translate3d(0,7px,0);
+				transform: translate3d(0,7px,0);
+				&:hover { opacity: 1; }
+			}
+		}
+	}
+}
+//	footer loading animation
+#footer-portfolio {
+  > i {
+    color: $brand-primary;
+    font-size: 30px;
+    padding: 30px 0
+  }
+}
+
+/*!
+ **********************************************************
+ *
+ *		background image in pages
+ *
+ **********************************************************
+ */
+//  Opacity background image
+.backstretch {
+  background-color: #000;
+  img { @include opacity(0.30) };
+}
+//  Margins top for content
+.with-background-image section.container {
+  padding-top: ceil( $grid-gutter-width * 2.5 );
+  @media (min-width: $screen-sm-min) {
+    padding-top: ceil( $grid-gutter-width * 3 );
+  }
+  @media (min-width: $screen-md-min) {
+    padding-top: ceil( $grid-gutter-width * 3.5 );
+  }
+}
